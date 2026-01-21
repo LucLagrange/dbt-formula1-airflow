@@ -1,17 +1,26 @@
 [project]
 name = "dbt-formula1-airflow"
 version = "0.1.0"
-description = "Testing project for dbt orchestration via Airflow"
+description = "Local DuckDB + dbt project for an F1 CSV dataset (uv-managed)"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.12,<3.13"
 dependencies = [
-    "dbt-core>=1.8,<2.0",
-    "dbt-duckdb>=1.8,<2.0",
-    "duckdb>=1.0,<2.0",
+  "dbt-core>=1.10,<2.0",
+  "dbt-duckdb>=1.10,<2.0",
+  "duckdb>=1.0,<2.0",
+  "python-dotenv>=1.0,<2.0",
 ]
 
 [project.optional-dependencies]
 dev = [
-    "ruff>=0.6,<1.0",
-    "pytest>=8,<9",
+  "ruff>=0.6,<1.0",
+  "pytest>=8,<9",
 ]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+select = ["E", "F", "I", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["orchestrator/tests"]
