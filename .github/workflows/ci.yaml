@@ -30,7 +30,9 @@ jobs:
         run: uv sync --locked --group dev
 
       - name: Ingest CSVs into DuckDB (raw schema)
-        run: uv run python orchestrator/scripts/ingest_raw.py
+        run: |
+          mkdir -p warehouse/duckdb
+          uv run python orchestrator/scripts/ingest_raw.py
 
       - name: dbt deps
         run: uv run dbt deps
