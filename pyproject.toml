@@ -11,10 +11,12 @@ dependencies = [
   "python-dotenv>=1.0,<2.0",
 ]
 
-[project.optional-dependencies]
+[dependency-groups]
 dev = [
+  "dbt-osmosis>=1.2.2",
   "ruff>=0.6,<1.0",
   "pytest>=8,<9",
+  "sqlfluff>=4.0.0",
 ]
 
 [tool.ruff]

@@ -1,0 +1,21 @@
+version: 2
+
+sources:
+  - name: f1
+    schema: raw
+    description: "F1 CSV dataset ingested into DuckDB schema raw."
+    tables:
+      - name: circuits
+      - name: constructor_results
+      - name: constructor_standings
+      - name: constructors
+      - name: driver_standings
+      - name: drivers
+      - name: lap_times
+      - name: pit_stops
+      - name: qualifying
+      - name: races
+      - name: results
+      - name: seasons
+      - name: sprint_results
+      - name: status

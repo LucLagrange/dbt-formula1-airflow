@@ -34,5 +34,3 @@ models:
     # Config indicated by + and applies to all files under models/example/
     example:
       +materialized: view
-
-send_anonymous_usage_stats: False
