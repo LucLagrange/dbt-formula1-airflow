@@ -3,5 +3,5 @@ dbt_formula1_airflow:
   outputs:
     dev:
       type: duckdb
-      path: ../warehouse/duckdb/dev.duckdb
+      path: warehouse/duckdb/dev.duckdb
       schema: analytics
