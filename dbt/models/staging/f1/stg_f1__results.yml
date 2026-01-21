@@ -1,0 +1,22 @@
+version: 2
+models:
+  - name: stg_f1__results
+    columns:
+      - name: result_id
+      - name: race_id
+      - name: driver_id
+      - name: constructor_id
+      - name: car_number
+      - name: grid_position
+      - name: finish_position
+      - name: finish_position_text
+      - name: finish_position_order
+      - name: points
+      - name: laps_completed
+      - name: race_time_text
+      - name: race_time_ms
+      - name: fastest_lap_number
+      - name: fastest_lap_rank
+      - name: fastest_lap_time_text
+      - name: fastest_lap_speed
+      - name: status_id

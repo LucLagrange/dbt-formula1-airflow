@@ -17,6 +17,7 @@ dev = [
   "ruff>=0.6,<1.0",
   "pytest>=8,<9",
   "sqlfluff>=4.0.0",
+  "openai>=2.15.0",
 ]
 
 [tool.ruff]

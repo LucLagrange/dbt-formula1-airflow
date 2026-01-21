@@ -39,7 +39,6 @@ models:
     skip-add-source-columns: true
 
   dbt_formula1_airflow:
+    +materialized: table
     staging:
       +schema: staging
-    marts:
-      +schema: marts

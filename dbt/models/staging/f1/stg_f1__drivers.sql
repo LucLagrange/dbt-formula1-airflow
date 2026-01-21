@@ -1,11 +1,11 @@
-select
-  cast(driverId as integer) as driver_id,
-  cast(driverRef as varchar) as driver_ref,
-  cast(nullif(number, '') as integer) as driver_number,
-  cast(nullif(code, '') as varchar) as driver_code,
-  cast(forename as varchar) as first_name,
-  cast(surname as varchar) as last_name,
-  cast(dob as date) as date_of_birth,
-  cast(nationality as varchar) as nationality,
-  cast(url as varchar) as driver_url
-from {{ source('f1', 'drivers') }}
+SELECT
+    CAST(driverid AS integer) AS driver_id,
+    CAST(driverref AS varchar(255)) AS driver_ref,
+    CAST(NULLIF(number, '\N') AS integer) AS driver_number,
+    CAST(NULLIF(code, '\N') AS varchar) AS driver_code,
+    CAST(forename AS varchar) AS first_name,
+    CAST(surname AS varchar) AS last_name,
+    CAST(dob AS date) AS date_of_birth,
+    CAST(nationality AS varchar) AS nationality,
+    CAST(url AS varchar) AS driver_url
+FROM {{ source('f1', 'drivers') }}

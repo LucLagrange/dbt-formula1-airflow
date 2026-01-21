@@ -1,0 +1,36 @@
+[sqlfluff]
+dialect = duckdb
+templater = dbt
+max_line_length = 100
+verbosity = 0
+
+[sqlfluff:templater:dbt]
+project_dir = dbt
+profiles_dir = dbt
+
+[sqlfluff:core]
+exclude_path =
+  dbt/target
+  dbt/dbt_packages
+  dbt/logs
+  .venv
+  warehouse
+
+[sqlfluff:rules:capitalisation.keywords]
+capitalisation_policy = upper
+
+[sqlfluff:rules:capitalisation.functions]
+capitalisation_policy = upper
+
+[sqlfluff:rules:capitalisation.identifiers]
+capitalisation_policy = lower
+
+[sqlfluff:rules:layout.indent]
+indent_unit = space
+tab_space_size = 2
+
+[sqlfluff:rules:layout.commas]
+comma_style = trailing
+
+[sqlfluff:rules:layout.keyword_newline]
+keyword_newline = before

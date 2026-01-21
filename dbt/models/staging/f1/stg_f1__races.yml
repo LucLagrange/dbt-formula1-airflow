@@ -1,0 +1,22 @@
+version: 2
+models:
+  - name: stg_f1__races
+    columns:
+      - name: race_id
+      - name: season_year
+      - name: round
+      - name: circuit_id
+      - name: race_name
+      - name: race_date
+      - name: race_time_utc
+      - name: race_url
+      - name: fp1_date
+      - name: fp1_time_utc
+      - name: fp2_date
+      - name: fp2_time_utc
+      - name: fp3_date
+      - name: fp3_time_utc
+      - name: qualifying_date
+      - name: qualifying_time_utc
+      - name: sprint_date
+      - name: sprint_time_utc

@@ -1,0 +1,16 @@
+version: 2
+models:
+  - name: stg_f1__drivers
+    columns:
+      - name: driver_id
+        data_tests:
+          - not_null
+          - unique
+      - name: driver_ref
+      - name: driver_number
+      - name: driver_code
+      - name: first_name
+      - name: last_name
+      - name: date_of_birth
+      - name: nationality
+      - name: driver_url

@@ -11,6 +11,7 @@ __pycache__/
 dbt/target/
 dbt/dbt_packages/
 dbt/logs/
+dbt/.user.yml
 
 # DuckDB local database file (do not commit)
 warehouse/duckdb/*.duckdb
