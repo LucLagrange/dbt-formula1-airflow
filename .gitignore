@@ -6,3 +6,13 @@ __pycache__/
 *.pyd
 .pytest_cache/
 .ruff_cache/
+
+# dbt build artifacts
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+
+# DuckDB local database file (do not commit)
+warehouse/duckdb/*.duckdb
+warehouse/duckdb/*.wal
+warehouse/duckdb/*.tmp
