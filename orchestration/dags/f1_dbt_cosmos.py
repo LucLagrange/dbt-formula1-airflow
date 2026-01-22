@@ -7,7 +7,13 @@ from airflow import DAG
 from airflow.providers.docker.operators.docker import DockerOperator
 from docker.types import Mount
 
-from cosmos import DbtTaskGroup, ProjectConfig, ProfileConfig, ExecutionConfig, RenderConfig
+from cosmos import (
+    DbtTaskGroup,
+    ProjectConfig,
+    ProfileConfig,
+    ExecutionConfig,
+    RenderConfig,
+)
 from cosmos.constants import ExecutionMode, LoadMode
 
 HOST_REPO_PATH = os.environ["HOST_REPO_PATH"]
