@@ -1,20 +1,65 @@
+---
 version: 2
 models:
-  - name: stg_f1__sprint_results
-    columns:
-      - name: result_id
-      - name: race_id
-      - name: driver_id
-      - name: constructor_id
-      - name: car_number
-      - name: grid_position
-      - name: finish_position
-      - name: finish_position_text
-      - name: finish_position_order
-      - name: points
-      - name: laps_completed
-      - name: sprint_time_text
-      - name: sprint_time_ms
-      - name: fastest_lap_number
-      - name: fastest_lap_time_text
-      - name: status_id
+    - name: stg_f1__sprint_results
+      description: Staging table for sprint race results
+      columns:
+          - name: result_id
+            description: Unique identifier for each sprint result
+            data_tests:
+                - not_null
+                - unique
+          - name: race_id
+            description: Foreign key to races table
+            data_tests:
+                - not_null
+                - relationships:
+                      arguments:
+                          to: ref('stg_f1__races')
+                          field: race_id
+          - name: driver_id
+            description: Foreign key to drivers table
+            data_tests:
+                - not_null
+                - relationships:
+                      arguments:
+                          to: ref('stg_f1__drivers')
+                          field: driver_id
+          - name: constructor_id
+            description: Foreign key to constructors table
+            data_tests:
+                - not_null
+                - relationships:
+                      arguments:
+                          to: ref('stg_f1__constructors')
+                          field: constructor_id
+          - name: car_number
+            description: Car number used in the sprint race
+          - name: grid_position
+            description: Starting position on the grid
+          - name: finish_position
+            description: Final finishing position (null if DNF)
+          - name: finish_position_text
+            description: Text representation of finish position
+          - name: finish_position_order
+            description: Order in which drivers finished
+          - name: points
+            description: Championship points awarded for sprint race
+          - name: laps_completed
+            description: Number of laps completed in the sprint
+          - name: sprint_time_text
+            description: Total sprint time or gap to winner in text format
+          - name: sprint_time_ms
+            description: Total sprint time in milliseconds (for winner only)
+          - name: fastest_lap_number
+            description: Lap number on which fastest lap was set
+          - name: fastest_lap_time_text
+            description: Fastest lap time in text format
+          - name: status_id
+            description: Foreign key to status table (indicates finish status)
+            data_tests:
+                - not_null
+                - relationships:
+                      arguments:
+                          to: ref('stg_f1__status')
+                          field: status_id

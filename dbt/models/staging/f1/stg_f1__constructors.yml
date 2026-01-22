@@ -1,9 +1,19 @@
+---
 version: 2
 models:
-  - name: stg_f1__constructors
-    columns:
-      - name: constructor_id
-      - name: constructor_ref
-      - name: constructor_name
-      - name: nationality
-      - name: constructor_url
+    - name: stg_f1__constructors
+      description: Staging table for Formula 1 constructors (teams) information
+      columns:
+          - name: constructor_id
+            description: Unique identifier for each constructor
+            data_tests:
+                - not_null
+                - unique
+          - name: constructor_ref
+            description: Reference name for the constructor (e.g., 'mclaren', 'ferrari')
+          - name: constructor_name
+            description: Full name of the constructor
+          - name: nationality
+            description: Constructor's nationality
+          - name: constructor_url
+            description: Wikipedia URL for the constructor

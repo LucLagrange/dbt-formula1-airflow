@@ -1,13 +1,27 @@
+---
 version: 2
 models:
-  - name: stg_f1__circuits
-    columns:
-      - name: location
-      - name: country
-      - name: circuit_url
-      - name: circuit_id
-      - name: circuit_short_name
-      - name: circuit_long_name
-      - name: latitude
-      - name: longitude
-      - name: altitude
+    - name: stg_f1__circuits
+      description: Staging table for Formula 1 racing circuits and their geographic information
+      columns:
+          - name: circuit_id
+            description: Unique identifier for each circuit
+            data_tests:
+                - not_null
+                - unique
+          - name: circuit_short_name
+            description: Reference name for the circuit (e.g., 'monaco', 'silverstone')
+          - name: circuit_long_name
+            description: Official full name of the circuit
+          - name: latitude
+            description: Geographic latitude coordinate of the circuit
+          - name: longitude
+            description: Geographic longitude coordinate of the circuit
+          - name: altitude
+            description: Altitude above sea level in meters
+          - name: location
+            description: City or locality where the circuit is located
+          - name: country
+            description: Country where the circuit is located
+          - name: circuit_url
+            description: Wikipedia URL for the circuit

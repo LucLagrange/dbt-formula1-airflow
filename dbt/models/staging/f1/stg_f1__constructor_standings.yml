@@ -1,11 +1,35 @@
+---
 version: 2
 models:
-  - name: stg_f1__constructor_standings
-    columns:
-      - name: constructor_standings_id
-      - name: race_id
-      - name: constructor_id
-      - name: points
-      - name: standings_position
-      - name: standings_position_text
-      - name: wins
+    - name: stg_f1__constructor_standings
+      description: Staging table for constructor championship standings after each race
+      columns:
+          - name: constructor_standings_id
+            description: Unique identifier for each standings entry
+            data_tests:
+                - not_null
+                - unique
+          - name: race_id
+            description: Foreign key to races table
+            data_tests:
+                - not_null
+                - relationships:
+                      arguments:
+                          to: ref('stg_f1__races')
+                          field: race_id
+          - name: constructor_id
+            description: Foreign key to constructors table
+            data_tests:
+                - not_null
+                - relationships:
+                      arguments:
+                          to: ref('stg_f1__constructors')
+                          field: constructor_id
+          - name: points
+            description: Cumulative championship points after this race
+          - name: standings_position
+            description: Position in the constructor standings
+          - name: standings_position_text
+            description: Text representation of standings position
+          - name: wins
+            description: Total number of race wins up to this point
