@@ -1,8 +1,7 @@
----
 dbt_formula1_airflow:
-    target: dev
-    outputs:
-        dev:
-            type: duckdb
-            path: warehouse/duckdb/dev.duckdb
-            schema: analytics
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "{{ env_var('DUCKDB_PATH', 'warehouse/duckdb/dev.duckdb') }}"
+      schema: analytics

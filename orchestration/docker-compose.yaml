@@ -1,0 +1,32 @@
+services:
+  airflow:
+    build:
+      context: .
+      dockerfile: Dockerfile.airflow
+    container_name: airflow3
+    restart: unless-stopped
+    environment:
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "false"
+      HOST_REPO_PATH: ${HOST_REPO_PATH}
+    volumes:
+      - ./dags:/opt/airflow/dags
+      # Let Airflow start containers on the host Docker engine
+      - /var/run/docker.sock:/var/run/docker.sock
+      # Mount repo into Airflow container (nice for browsing files, not used by DockerOperator mounts)
+      - ..:/workspace
+    working_dir: /workspace
+    ports:
+      - "8080:8080"
+    command: >
+      bash -lc "
+      airflow db migrate &&
+      airflow standalone
+      "
+
+  # Build the dbt runtime image locally so Airflow can run it on-demand
+  dbt:
+    build:
+      context: .
+      dockerfile: Dockerfile.dbt
+    image: dbt-formula1:local
