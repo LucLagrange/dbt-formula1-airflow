@@ -1,0 +1,13 @@
+---
+version: 2
+models:
+    - name: stg_f1__status
+      description: Staging table for race finish status codes
+      columns:
+          - name: status_id
+            description: Unique identifier for each status (primary key)
+            data_tests:
+                - not_null
+                - unique
+          - name: status_description
+            description: Description of the status (e.g., 'Finished', 'Accident', 'Engine', etc.)

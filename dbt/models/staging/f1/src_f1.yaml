@@ -1,274 +1,275 @@
+---
 version: 2
 sources:
-  - name: f1
-    schema: raw
-    description: F1 CSV dataset ingested into DuckDB schema raw.
-    tables:
-      - name: circuits
-        columns:
-          - name: circuitId
-            data_type: BIGINT
-          - name: circuitRef
-            data_type: VARCHAR
-          - name: name
-            data_type: VARCHAR
-          - name: location
-            data_type: VARCHAR
-          - name: country
-            data_type: VARCHAR
-          - name: lat
-            data_type: DOUBLE
-          - name: lng
-            data_type: DOUBLE
-          - name: alt
-            data_type: BIGINT
-          - name: url
-            data_type: VARCHAR
-      - name: constructor_results
-        columns:
-          - name: constructorResultsId
-            data_type: BIGINT
-          - name: raceId
-            data_type: BIGINT
-          - name: constructorId
-            data_type: BIGINT
-          - name: points
-            data_type: DOUBLE
+    - name: f1
+      schema: raw
+      description: F1 CSV dataset ingested into DuckDB schema raw.
+      tables:
+          - name: circuits
+            columns:
+                - name: circuitId
+                  data_type: BIGINT
+                - name: circuitRef
+                  data_type: VARCHAR
+                - name: name
+                  data_type: VARCHAR
+                - name: location
+                  data_type: VARCHAR
+                - name: country
+                  data_type: VARCHAR
+                - name: lat
+                  data_type: DOUBLE
+                - name: lng
+                  data_type: DOUBLE
+                - name: alt
+                  data_type: BIGINT
+                - name: url
+                  data_type: VARCHAR
+          - name: constructor_results
+            columns:
+                - name: constructorResultsId
+                  data_type: BIGINT
+                - name: raceId
+                  data_type: BIGINT
+                - name: constructorId
+                  data_type: BIGINT
+                - name: points
+                  data_type: DOUBLE
+                - name: status
+                  data_type: VARCHAR
+          - name: constructor_standings
+            columns:
+                - name: constructorStandingsId
+                  data_type: BIGINT
+                - name: raceId
+                  data_type: BIGINT
+                - name: constructorId
+                  data_type: BIGINT
+                - name: points
+                  data_type: DOUBLE
+                - name: position
+                  data_type: BIGINT
+                - name: positionText
+                  data_type: VARCHAR
+                - name: wins
+                  data_type: BIGINT
+          - name: constructors
+            columns:
+                - name: constructorId
+                  data_type: BIGINT
+                - name: constructorRef
+                  data_type: VARCHAR
+                - name: name
+                  data_type: VARCHAR
+                - name: nationality
+                  data_type: VARCHAR
+                - name: url
+                  data_type: VARCHAR
+          - name: driver_standings
+            columns:
+                - name: driverStandingsId
+                  data_type: BIGINT
+                - name: raceId
+                  data_type: BIGINT
+                - name: driverId
+                  data_type: BIGINT
+                - name: points
+                  data_type: DOUBLE
+                - name: position
+                  data_type: BIGINT
+                - name: positionText
+                  data_type: VARCHAR
+                - name: wins
+                  data_type: BIGINT
+          - name: drivers
+            columns:
+                - name: driverId
+                  data_type: BIGINT
+                - name: driverRef
+                  data_type: VARCHAR
+                - name: number
+                  data_type: VARCHAR
+                - name: code
+                  data_type: VARCHAR
+                - name: forename
+                  data_type: VARCHAR
+                - name: surname
+                  data_type: VARCHAR
+                - name: dob
+                  data_type: DATE
+                - name: nationality
+                  data_type: VARCHAR
+                - name: url
+                  data_type: VARCHAR
+          - name: lap_times
+            columns:
+                - name: raceId
+                  data_type: BIGINT
+                - name: driverId
+                  data_type: BIGINT
+                - name: lap
+                  data_type: BIGINT
+                - name: position
+                  data_type: BIGINT
+                - name: time
+                  data_type: VARCHAR
+                - name: milliseconds
+                  data_type: BIGINT
+          - name: pit_stops
+            columns:
+                - name: raceId
+                  data_type: BIGINT
+                - name: driverId
+                  data_type: BIGINT
+                - name: stop
+                  data_type: BIGINT
+                - name: lap
+                  data_type: BIGINT
+                - name: time
+                  data_type: TIME
+                - name: duration
+                  data_type: VARCHAR
+                - name: milliseconds
+                  data_type: BIGINT
+          - name: qualifying
+            columns:
+                - name: qualifyId
+                  data_type: BIGINT
+                - name: raceId
+                  data_type: BIGINT
+                - name: driverId
+                  data_type: BIGINT
+                - name: constructorId
+                  data_type: BIGINT
+                - name: number
+                  data_type: BIGINT
+                - name: position
+                  data_type: BIGINT
+                - name: q1
+                  data_type: VARCHAR
+                - name: q2
+                  data_type: VARCHAR
+                - name: q3
+                  data_type: VARCHAR
+          - name: races
+            columns:
+                - name: raceId
+                  data_type: BIGINT
+                - name: year
+                  data_type: BIGINT
+                - name: round
+                  data_type: BIGINT
+                - name: circuitId
+                  data_type: BIGINT
+                - name: name
+                  data_type: VARCHAR
+                - name: date
+                  data_type: DATE
+                - name: time
+                  data_type: VARCHAR
+                - name: url
+                  data_type: VARCHAR
+                - name: fp1_date
+                  data_type: VARCHAR
+                - name: fp1_time
+                  data_type: VARCHAR
+                - name: fp2_date
+                  data_type: VARCHAR
+                - name: fp2_time
+                  data_type: VARCHAR
+                - name: fp3_date
+                  data_type: VARCHAR
+                - name: fp3_time
+                  data_type: VARCHAR
+                - name: quali_date
+                  data_type: VARCHAR
+                - name: quali_time
+                  data_type: VARCHAR
+                - name: sprint_date
+                  data_type: VARCHAR
+                - name: sprint_time
+                  data_type: VARCHAR
+          - name: results
+            columns:
+                - name: resultId
+                  data_type: BIGINT
+                - name: raceId
+                  data_type: BIGINT
+                - name: driverId
+                  data_type: BIGINT
+                - name: constructorId
+                  data_type: BIGINT
+                - name: number
+                  data_type: VARCHAR
+                - name: grid
+                  data_type: BIGINT
+                - name: position
+                  data_type: VARCHAR
+                - name: positionText
+                  data_type: VARCHAR
+                - name: positionOrder
+                  data_type: BIGINT
+                - name: points
+                  data_type: DOUBLE
+                - name: laps
+                  data_type: BIGINT
+                - name: time
+                  data_type: VARCHAR
+                - name: milliseconds
+                  data_type: VARCHAR
+                - name: fastestLap
+                  data_type: VARCHAR
+                - name: rank
+                  data_type: VARCHAR
+                - name: fastestLapTime
+                  data_type: VARCHAR
+                - name: fastestLapSpeed
+                  data_type: VARCHAR
+                - name: statusId
+                  data_type: BIGINT
+          - name: seasons
+            columns:
+                - name: year
+                  data_type: BIGINT
+                - name: url
+                  data_type: VARCHAR
+          - name: sprint_results
+            columns:
+                - name: resultId
+                  data_type: BIGINT
+                - name: raceId
+                  data_type: BIGINT
+                - name: driverId
+                  data_type: BIGINT
+                - name: constructorId
+                  data_type: BIGINT
+                - name: number
+                  data_type: BIGINT
+                - name: grid
+                  data_type: BIGINT
+                - name: position
+                  data_type: VARCHAR
+                - name: positionText
+                  data_type: VARCHAR
+                - name: positionOrder
+                  data_type: BIGINT
+                - name: points
+                  data_type: BIGINT
+                - name: laps
+                  data_type: BIGINT
+                - name: time
+                  data_type: VARCHAR
+                - name: milliseconds
+                  data_type: VARCHAR
+                - name: fastestLap
+                  data_type: VARCHAR
+                - name: fastestLapTime
+                  data_type: VARCHAR
+                - name: statusId
+                  data_type: BIGINT
           - name: status
-            data_type: VARCHAR
-      - name: constructor_standings
-        columns:
-          - name: constructorStandingsId
-            data_type: BIGINT
-          - name: raceId
-            data_type: BIGINT
-          - name: constructorId
-            data_type: BIGINT
-          - name: points
-            data_type: DOUBLE
-          - name: position
-            data_type: BIGINT
-          - name: positionText
-            data_type: VARCHAR
-          - name: wins
-            data_type: BIGINT
-      - name: constructors
-        columns:
-          - name: constructorId
-            data_type: BIGINT
-          - name: constructorRef
-            data_type: VARCHAR
-          - name: name
-            data_type: VARCHAR
-          - name: nationality
-            data_type: VARCHAR
-          - name: url
-            data_type: VARCHAR
-      - name: driver_standings
-        columns:
-          - name: driverStandingsId
-            data_type: BIGINT
-          - name: raceId
-            data_type: BIGINT
-          - name: driverId
-            data_type: BIGINT
-          - name: points
-            data_type: DOUBLE
-          - name: position
-            data_type: BIGINT
-          - name: positionText
-            data_type: VARCHAR
-          - name: wins
-            data_type: BIGINT
-      - name: drivers
-        columns:
-          - name: driverId
-            data_type: BIGINT
-          - name: driverRef
-            data_type: VARCHAR
-          - name: number
-            data_type: VARCHAR
-          - name: code
-            data_type: VARCHAR
-          - name: forename
-            data_type: VARCHAR
-          - name: surname
-            data_type: VARCHAR
-          - name: dob
-            data_type: DATE
-          - name: nationality
-            data_type: VARCHAR
-          - name: url
-            data_type: VARCHAR
-      - name: lap_times
-        columns:
-          - name: raceId
-            data_type: BIGINT
-          - name: driverId
-            data_type: BIGINT
-          - name: lap
-            data_type: BIGINT
-          - name: position
-            data_type: BIGINT
-          - name: time
-            data_type: VARCHAR
-          - name: milliseconds
-            data_type: BIGINT
-      - name: pit_stops
-        columns:
-          - name: raceId
-            data_type: BIGINT
-          - name: driverId
-            data_type: BIGINT
-          - name: stop
-            data_type: BIGINT
-          - name: lap
-            data_type: BIGINT
-          - name: time
-            data_type: TIME
-          - name: duration
-            data_type: VARCHAR
-          - name: milliseconds
-            data_type: BIGINT
-      - name: qualifying
-        columns:
-          - name: qualifyId
-            data_type: BIGINT
-          - name: raceId
-            data_type: BIGINT
-          - name: driverId
-            data_type: BIGINT
-          - name: constructorId
-            data_type: BIGINT
-          - name: number
-            data_type: BIGINT
-          - name: position
-            data_type: BIGINT
-          - name: q1
-            data_type: VARCHAR
-          - name: q2
-            data_type: VARCHAR
-          - name: q3
-            data_type: VARCHAR
-      - name: races
-        columns:
-          - name: raceId
-            data_type: BIGINT
-          - name: year
-            data_type: BIGINT
-          - name: round
-            data_type: BIGINT
-          - name: circuitId
-            data_type: BIGINT
-          - name: name
-            data_type: VARCHAR
-          - name: date
-            data_type: DATE
-          - name: time
-            data_type: VARCHAR
-          - name: url
-            data_type: VARCHAR
-          - name: fp1_date
-            data_type: VARCHAR
-          - name: fp1_time
-            data_type: VARCHAR
-          - name: fp2_date
-            data_type: VARCHAR
-          - name: fp2_time
-            data_type: VARCHAR
-          - name: fp3_date
-            data_type: VARCHAR
-          - name: fp3_time
-            data_type: VARCHAR
-          - name: quali_date
-            data_type: VARCHAR
-          - name: quali_time
-            data_type: VARCHAR
-          - name: sprint_date
-            data_type: VARCHAR
-          - name: sprint_time
-            data_type: VARCHAR
-      - name: results
-        columns:
-          - name: resultId
-            data_type: BIGINT
-          - name: raceId
-            data_type: BIGINT
-          - name: driverId
-            data_type: BIGINT
-          - name: constructorId
-            data_type: BIGINT
-          - name: number
-            data_type: VARCHAR
-          - name: grid
-            data_type: BIGINT
-          - name: position
-            data_type: VARCHAR
-          - name: positionText
-            data_type: VARCHAR
-          - name: positionOrder
-            data_type: BIGINT
-          - name: points
-            data_type: DOUBLE
-          - name: laps
-            data_type: BIGINT
-          - name: time
-            data_type: VARCHAR
-          - name: milliseconds
-            data_type: VARCHAR
-          - name: fastestLap
-            data_type: VARCHAR
-          - name: rank
-            data_type: VARCHAR
-          - name: fastestLapTime
-            data_type: VARCHAR
-          - name: fastestLapSpeed
-            data_type: VARCHAR
-          - name: statusId
-            data_type: BIGINT
-      - name: seasons
-        columns:
-          - name: year
-            data_type: BIGINT
-          - name: url
-            data_type: VARCHAR
-      - name: sprint_results
-        columns:
-          - name: resultId
-            data_type: BIGINT
-          - name: raceId
-            data_type: BIGINT
-          - name: driverId
-            data_type: BIGINT
-          - name: constructorId
-            data_type: BIGINT
-          - name: number
-            data_type: BIGINT
-          - name: grid
-            data_type: BIGINT
-          - name: position
-            data_type: VARCHAR
-          - name: positionText
-            data_type: VARCHAR
-          - name: positionOrder
-            data_type: BIGINT
-          - name: points
-            data_type: BIGINT
-          - name: laps
-            data_type: BIGINT
-          - name: time
-            data_type: VARCHAR
-          - name: milliseconds
-            data_type: VARCHAR
-          - name: fastestLap
-            data_type: VARCHAR
-          - name: fastestLapTime
-            data_type: VARCHAR
-          - name: statusId
-            data_type: BIGINT
-      - name: status
-        columns:
-          - name: statusId
-            data_type: BIGINT
-          - name: status
-            data_type: VARCHAR
+            columns:
+                - name: statusId
+                  data_type: BIGINT
+                - name: status
+                  data_type: VARCHAR

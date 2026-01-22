@@ -1,25 +1,20 @@
 SELECT
-    cast(raceid AS integer) AS race_id,
-    cast(year AS integer) AS season_year,
-    cast(round AS integer) AS round,
-    cast(circuitid AS integer) AS circuit_id,
-    cast(name AS varchar) AS race_name,
-
-    cast(date AS date) AS race_date,
-    -- cast(nullif(time, '') as time) as race_time_utc,
-    cast(url AS varchar) AS race_url
-    /*
-  cast(fp1_date as date) as fp1_date,
-  cast(nullif(fp1_time, '') as time) as fp1_time_utc,
-  cast(fp2_date as date) as fp2_date,
-  cast(nullif(fp2_time, '') as time) as fp2_time_utc,
-  cast(fp3_date as date) as fp3_date,
-  cast(nullif(fp3_time, '') as time) as fp3_time_utc,
-
-  cast(quali_date as date) as qualifying_date,
-  cast(nullif(quali_time, '') as time) as qualifying_time_utc,
-
-  cast(sprint_date as date) as sprint_date,
-  cast(nullif(sprint_time, '') as time) as sprint_time_utc
-  */
+    CAST(raceid AS integer) AS race_id,
+    CAST(year AS integer) AS season_year,
+    CAST(round AS integer) AS round,
+    CAST(circuitid AS integer) AS circuit_id,
+    CAST(name AS varchar) AS race_name,
+    CAST(date AS date) AS race_date,
+    CAST(NULLIF(time, '\N') AS time) AS race_time_utc,
+    CAST(url AS varchar) AS race_url,
+    CAST(NULLIF(fp1_date, '\N') AS date) AS fp1_date,
+    CAST(NULLIF(fp1_time, '\N') AS time) AS fp1_time_utc,
+    CAST(NULLIF(fp2_date, '\N') AS date) AS fp2_date,
+    CAST(NULLIF(fp2_time, '\N') AS time) AS fp2_time_utc,
+    CAST(NULLIF(fp3_date, '\N') AS date) AS fp3_date,
+    CAST(NULLIF(fp3_time, '\N') AS time) AS fp3_time_utc,
+    CAST(NULLIF(quali_date, '\N') AS date) AS qualifying_date,
+    CAST(NULLIF(quali_time, '\N') AS time) AS qualifying_time_utc,
+    CAST(NULLIF(sprint_date, '\N') AS date) AS sprint_date,
+    CAST(NULLIF(sprint_time, '\N') AS time) AS sprint_time_utc
 FROM {{ source('f1', 'races') }}

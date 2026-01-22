@@ -1,0 +1,45 @@
+---
+version: 2
+models:
+    - name: stg_f1__qualifying
+      description: Staging table for Formula 1 qualifying session results
+      columns:
+          - name: qualify_id
+            description: Unique identifier for each qualifying result
+            data_tests:
+                - not_null
+                - unique
+          - name: race_id
+            description: Foreign key to races table
+            data_tests:
+                - not_null
+                - relationships:
+                      arguments:
+                          to: ref('stg_f1__races')
+                          field: race_id
+          - name: driver_id
+            description: Foreign key to drivers table
+            data_tests:
+                - not_null
+                - relationships:
+                      arguments:
+                          to: ref('stg_f1__drivers')
+                          field: driver_id
+          - name: constructor_id
+            description: Foreign key to constructors table
+            data_tests:
+                - not_null
+                - relationships:
+                      arguments:
+                          to: ref('stg_f1__constructors')
+                          field: constructor_id
+          - name: car_number
+            description: Car number used in qualifying
+          - name: qualifying_position
+            description: Final qualifying position
+          - name: q1_time
+            description: Best lap time in Q1 session
+          - name: q2_time
+            description: Best lap time in Q2 session
+          - name: q3_time
+            description: Best lap time in Q3 session

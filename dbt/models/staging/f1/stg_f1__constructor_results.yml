@@ -1,0 +1,31 @@
+---
+version: 2
+models:
+    - name: stg_f1__constructor_results
+      description: Staging table for constructor race results
+      columns:
+          - name: constructor_result_id
+            description: Unique identifier for each constructor result
+            data_tests:
+                - not_null
+                - unique
+          - name: race_id
+            description: Foreign key to races table
+            data_tests:
+                - not_null
+                - relationships:
+                      arguments:
+                          to: ref('stg_f1__races')
+                          field: race_id
+          - name: constructor_id
+            description: Foreign key to constructors table
+            data_tests:
+                - not_null
+                - relationships:
+                      arguments:
+                          to: ref('stg_f1__constructors')
+                          field: constructor_id
+          - name: points
+            description: Points scored by the constructor in this race
+          - name: status
+            description: Status or notes about the constructor's performance

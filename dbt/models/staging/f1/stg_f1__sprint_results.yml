@@ -1,11 +1,11 @@
 ---
 version: 2
 models:
-    - name: stg_f1__results
-      description: Staging table for Formula 1 race results with detailed performance metrics
+    - name: stg_f1__sprint_results
+      description: Staging table for sprint race results
       columns:
           - name: result_id
-            description: Unique identifier for each race result
+            description: Unique identifier for each sprint result
             data_tests:
                 - not_null
                 - unique
@@ -34,31 +34,27 @@ models:
                           to: ref('stg_f1__constructors')
                           field: constructor_id
           - name: car_number
-            description: Car number used in the race
+            description: Car number used in the sprint race
           - name: grid_position
             description: Starting position on the grid
           - name: finish_position
             description: Final finishing position (null if DNF)
           - name: finish_position_text
-            description: Text representation of finish position (includes 'R', 'D', 'E', 'W', 'F', 'N')
+            description: Text representation of finish position
           - name: finish_position_order
-            description: Order in which drivers finished (accounts for lapped drivers)
+            description: Order in which drivers finished
           - name: points
-            description: Championship points awarded
+            description: Championship points awarded for sprint race
           - name: laps_completed
-            description: Number of laps completed
-          - name: race_time_text
-            description: Total race time or gap to winner in text format
-          - name: race_time_ms
-            description: Total race time in milliseconds (for winner only)
+            description: Number of laps completed in the sprint
+          - name: sprint_time_text
+            description: Total sprint time or gap to winner in text format
+          - name: sprint_time_ms
+            description: Total sprint time in milliseconds (for winner only)
           - name: fastest_lap_number
             description: Lap number on which fastest lap was set
-          - name: fastest_lap_rank
-            description: Rank of fastest lap among all drivers
           - name: fastest_lap_time_text
             description: Fastest lap time in text format
-          - name: fastest_lap_speed
-            description: Average speed of fastest lap in km/h
           - name: status_id
             description: Foreign key to status table (indicates finish status)
             data_tests:

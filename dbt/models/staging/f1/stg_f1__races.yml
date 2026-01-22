@@ -1,22 +1,53 @@
+---
 version: 2
 models:
-  - name: stg_f1__races
-    columns:
-      - name: race_id
-      - name: season_year
-      - name: round
-      - name: circuit_id
-      - name: race_name
-      - name: race_date
-      - name: race_time_utc
-      - name: race_url
-      - name: fp1_date
-      - name: fp1_time_utc
-      - name: fp2_date
-      - name: fp2_time_utc
-      - name: fp3_date
-      - name: fp3_time_utc
-      - name: qualifying_date
-      - name: qualifying_time_utc
-      - name: sprint_date
-      - name: sprint_time_utc
+    - name: stg_f1__races
+      description: Staging table for Formula 1 race calendar and event details
+      columns:
+          - name: race_id
+            description: Unique identifier for each race
+            data_tests:
+                - not_null
+                - unique
+          - name: season_year
+            description: Year of the season
+            data_tests:
+                - not_null
+          - name: round
+            description: Round number within the season
+          - name: circuit_id
+            description: Foreign key to circuits table
+            data_tests:
+                - not_null
+                - relationships:
+                      arguments:
+                          to: ref('stg_f1__circuits')
+                          field: circuit_id
+          - name: race_name
+            description: Official name of the race (e.g., 'Australian Grand Prix')
+          - name: race_date
+            description: Date of the race
+          - name: race_time_utc
+            description: Start time of the race in UTC
+          - name: race_url
+            description: Wikipedia URL for the race
+          - name: fp1_date
+            description: Date of Free Practice 1
+          - name: fp1_time_utc
+            description: Start time of Free Practice 1 in UTC
+          - name: fp2_date
+            description: Date of Free Practice 2
+          - name: fp2_time_utc
+            description: Start time of Free Practice 2 in UTC
+          - name: fp3_date
+            description: Date of Free Practice 3
+          - name: fp3_time_utc
+            description: Start time of Free Practice 3 in UTC
+          - name: qualifying_date
+            description: Date of qualifying session
+          - name: qualifying_time_utc
+            description: Start time of qualifying session in UTC
+          - name: sprint_date
+            description: Date of sprint race (if applicable)
+          - name: sprint_time_utc
+            description: Start time of sprint race in UTC

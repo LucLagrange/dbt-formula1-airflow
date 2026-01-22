@@ -1,16 +1,27 @@
+---
 version: 2
 models:
-  - name: stg_f1__drivers
-    columns:
-      - name: driver_id
-        data_tests:
-          - not_null
-          - unique
-      - name: driver_ref
-      - name: driver_number
-      - name: driver_code
-      - name: first_name
-      - name: last_name
-      - name: date_of_birth
-      - name: nationality
-      - name: driver_url
+    - name: stg_f1__drivers
+      description: Staging table for Formula 1 drivers information
+      columns:
+          - name: driver_id
+            description: Unique identifier for each driver
+            data_tests:
+                - not_null
+                - unique
+          - name: driver_ref
+            description: Reference name for the driver (e.g., 'hamilton', 'verstappen')
+          - name: driver_number
+            description: Permanent driver number (introduced in 2014)
+          - name: driver_code
+            description: Three-letter driver code (e.g., 'HAM', 'VER')
+          - name: first_name
+            description: Driver's first name
+          - name: last_name
+            description: Driver's last name
+          - name: date_of_birth
+            description: Driver's date of birth
+          - name: nationality
+            description: Driver's nationality
+          - name: driver_url
+            description: Wikipedia URL for the driver

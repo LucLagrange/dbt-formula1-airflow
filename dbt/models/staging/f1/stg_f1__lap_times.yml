@@ -1,0 +1,32 @@
+---
+version: 2
+models:
+    - name: stg_f1__lap_times
+      description: Staging table for individual lap times for each driver in each race
+      columns:
+          - name: race_id
+            description: Foreign key to races table (part of composite primary key)
+            data_tests:
+                - not_null
+                - relationships:
+                      arguments:
+                          to: ref('stg_f1__races')
+                          field: race_id
+          - name: driver_id
+            description: Foreign key to drivers table (part of composite primary key)
+            data_tests:
+                - not_null
+                - relationships:
+                      arguments:
+                          to: ref('stg_f1__drivers')
+                          field: driver_id
+          - name: lap_number
+            description: Lap number (part of composite primary key)
+            data_tests:
+                - not_null
+          - name: lap_position
+            description: Position of the driver at the end of this lap
+          - name: lap_time_text
+            description: Lap time in text format (mm:ss.SSS)
+          - name: lap_time_ms
+            description: Lap time in milliseconds

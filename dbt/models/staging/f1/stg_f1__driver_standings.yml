@@ -1,0 +1,35 @@
+---
+version: 2
+models:
+    - name: stg_f1__driver_standings
+      description: Staging table for driver championship standings after each race
+      columns:
+          - name: driver_standings_id
+            description: Unique identifier for each standings entry
+            data_tests:
+                - not_null
+                - unique
+          - name: race_id
+            description: Foreign key to races table
+            data_tests:
+                - not_null
+                - relationships:
+                      arguments:
+                          to: ref('stg_f1__races')
+                          field: race_id
+          - name: driver_id
+            description: Foreign key to drivers table
+            data_tests:
+                - not_null
+                - relationships:
+                      arguments:
+                          to: ref('stg_f1__drivers')
+                          field: driver_id
+          - name: points
+            description: Cumulative championship points after this race
+          - name: standings_position
+            description: Position in the driver standings
+          - name: standings_position_text
+            description: Text representation of standings position
+          - name: wins
+            description: Total number of race wins up to this point

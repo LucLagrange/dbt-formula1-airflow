@@ -1,0 +1,13 @@
+---
+version: 2
+models:
+    - name: stg_f1__seasons
+      description: Staging table for Formula 1 seasons
+      columns:
+          - name: season_year
+            description: Year of the Formula 1 season (primary key)
+            data_tests:
+                - not_null
+                - unique
+          - name: season_url
+            description: Wikipedia URL for the season
