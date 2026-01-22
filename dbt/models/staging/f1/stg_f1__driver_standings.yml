@@ -6,6 +6,6 @@ models:
       - name: race_id
       - name: driver_id
       - name: points
-      - name: position
-      - name: position_text
+      - name: standings_position
+      - name: standings_position_text
       - name: wins

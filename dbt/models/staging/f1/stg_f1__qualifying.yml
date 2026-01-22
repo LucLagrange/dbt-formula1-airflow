@@ -7,7 +7,7 @@ models:
       - name: driver_id
       - name: constructor_id
       - name: car_number
-      - name: position
+      - name: qualifying_position
       - name: q1_time
       - name: q2_time
       - name: q3_time
