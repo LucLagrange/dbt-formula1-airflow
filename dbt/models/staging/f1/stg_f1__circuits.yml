@@ -1,0 +1,13 @@
+version: 2
+models:
+  - name: stg_f1__circuits
+    columns:
+      - name: location
+      - name: country
+      - name: circuit_url
+      - name: circuit_id
+      - name: circuit_short_name
+      - name: circuit_long_name
+      - name: latitude
+      - name: longitude
+      - name: altitude

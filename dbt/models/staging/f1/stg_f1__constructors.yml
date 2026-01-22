@@ -1,0 +1,9 @@
+version: 2
+models:
+  - name: stg_f1__constructors
+    columns:
+      - name: constructor_id
+      - name: constructor_ref
+      - name: constructor_name
+      - name: nationality
+      - name: constructor_url

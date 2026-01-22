@@ -1,0 +1,11 @@
+version: 2
+models:
+  - name: stg_f1__constructor_standings
+    columns:
+      - name: constructor_standings_id
+      - name: race_id
+      - name: constructor_id
+      - name: points
+      - name: position
+      - name: position_text
+      - name: wins

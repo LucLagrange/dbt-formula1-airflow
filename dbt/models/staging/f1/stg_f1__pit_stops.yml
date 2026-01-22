@@ -1,0 +1,11 @@
+version: 2
+models:
+  - name: stg_f1__pit_stops
+    columns:
+      - name: race_id
+      - name: driver_id
+      - name: stop_number
+      - name: lap_number
+      - name: pit_time
+      - name: duration_text
+      - name: duration_ms

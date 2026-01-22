@@ -1,0 +1,9 @@
+version: 2
+models:
+  - name: stg_f1__constructor_results
+    columns:
+      - name: constructor_result_id
+      - name: race_id
+      - name: constructor_id
+      - name: points
+      - name: status

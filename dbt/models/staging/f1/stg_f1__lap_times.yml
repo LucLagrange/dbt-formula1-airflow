@@ -1,0 +1,10 @@
+version: 2
+models:
+  - name: stg_f1__lap_times
+    columns:
+      - name: race_id
+      - name: driver_id
+      - name: lap_number
+      - name: position
+      - name: lap_time_text
+      - name: lap_time_ms

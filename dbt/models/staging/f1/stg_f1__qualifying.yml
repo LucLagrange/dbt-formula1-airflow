@@ -1,0 +1,13 @@
+version: 2
+models:
+  - name: stg_f1__qualifying
+    columns:
+      - name: qualify_id
+      - name: race_id
+      - name: driver_id
+      - name: constructor_id
+      - name: car_number
+      - name: position
+      - name: q1_time
+      - name: q2_time
+      - name: q3_time

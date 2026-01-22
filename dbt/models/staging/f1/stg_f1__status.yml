@@ -1,0 +1,6 @@
+version: 2
+models:
+  - name: stg_f1__status
+    columns:
+      - name: status_id
+      - name: status_description

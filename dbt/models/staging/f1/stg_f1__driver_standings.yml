@@ -1,0 +1,11 @@
+version: 2
+models:
+  - name: stg_f1__driver_standings
+    columns:
+      - name: driver_standings_id
+      - name: race_id
+      - name: driver_id
+      - name: points
+      - name: position
+      - name: position_text
+      - name: wins
