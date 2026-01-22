@@ -13,6 +13,7 @@ HOST_REPO_PATH = os.environ["HOST_REPO_PATH"]
 # Container path (inside dbt containers)
 REPO_MOUNT = "/workspace"
 DBT_DIR = f"{REPO_MOUNT}/dbt"
+DUCKDB_PATH = f"{REPO_MOUNT}/warehouse/duckdb/dev.duckdb"
 
 COMMON = dict(
     image="dbt-formula1:local",
@@ -22,6 +23,12 @@ COMMON = dict(
     mount_tmp_dir=False,
     mounts=[Mount(source=HOST_REPO_PATH, target=REPO_MOUNT, type="bind")],
 )
+
+DBT_ENV = {
+    "DBT_PROJECT_DIR": DBT_DIR,
+    "DBT_PROFILES_DIR": DBT_DIR,
+    "DUCKDB_PATH": DUCKDB_PATH,
+}
 
 with DAG(
     dag_id="f1__docker__dbt_staging",
@@ -41,11 +48,7 @@ with DAG(
         task_id="dbt_deps",
         command="dbt deps",
         working_dir=DBT_DIR,
-        environment={
-        "DBT_PROJECT_DIR": DBT_DIR,
-        "DBT_PROFILES_DIR": DBT_DIR,
-        "DUCKDB_PATH": "/workspace/warehouse/duckdb/dev.duckdb",
-        },
+        environment=DBT_ENV,
         **COMMON,
     )
 
@@ -53,12 +56,8 @@ with DAG(
         task_id="dbt_build_staging",
         command="dbt build --select path:models/staging",
         working_dir=DBT_DIR,
-        environment={
-            "DBT_PROJECT_DIR": DBT_DIR,
-            "DBT_PROFILES_DIR": DBT_DIR,
-            "DUCKDB_PATH": "/workspace/warehouse/duckdb/dev.duckdb",
-        },
+        environment=DBT_ENV,
         **COMMON,
     )
 
-ingest_raw >> dbt_deps >> dbt_build_staging
+    ingest_raw >> dbt_deps >> dbt_build_staging
