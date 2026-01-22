@@ -1,0 +1,8 @@
+astronomer-cosmos==1.12.1
+
+dbt-core==1.11.2
+dbt-adapters==1.22.5
+dbt-common==1.37.2
+dbt-duckdb==1.10.0
+duckdb==1.4.3
+protobuf>=6,<7
