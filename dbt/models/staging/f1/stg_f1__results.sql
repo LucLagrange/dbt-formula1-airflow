@@ -1,26 +1,20 @@
 SELECT
-    cast(RESULTID AS integer) AS RESULT_ID,
-    cast(RACEID AS integer) AS RACE_ID,
-    cast(DRIVERID AS integer) AS DRIVER_ID,
-    cast(CONSTRUCTORID AS integer) AS CONSTRUCTOR_ID,
-
-    -- cast(nullif(number, '') as integer) as car_number,
-    -- cast(nullif(grid, '') as integer) as grid_position,
-
-    -- cast(nullif(position, '') as integer) as finish_position,
-    cast(POSITIONTEXT AS varchar) AS FINISH_POSITION_TEXT,
-    cast(POSITIONORDER AS integer) AS FINISH_POSITION_ORDER,
-
-    cast(POINTS AS double) AS POINTS,
-    cast(LAPS AS integer) AS LAPS_COMPLETED,
-
-    cast(nullif(TIME, '') AS varchar) AS RACE_TIME_TEXT,
-    -- cast(nullif(milliseconds, '') as bigint) as race_time_ms,
-
-    -- cast(nullif(fastestLap, '') as integer) as fastest_lap_number,
-    -- cast(nullif(rank, '') as integer) as fastest_lap_rank,
-    -- cast(nullif(fastestLapTime, '') as varchar) as fastest_lap_time_text,
-    -- cast(nullif(fastestLapSpeed, '') as double) as fastest_lap_speed,
-
-    cast(STATUSID AS integer) AS STATUS_ID
+    CAST(resultid AS integer) AS result_id,
+    CAST(raceid AS integer) AS race_id,
+    CAST(driverid AS integer) AS driver_id,
+    CAST(constructorid AS integer) AS constructor_id,
+    CAST(NULLIF(number, '\N') AS integer) AS car_number,
+    CAST(grid AS integer) AS grid_position,
+    CAST(NULLIF(position, '\N') AS integer) AS finish_position,
+    CAST(positiontext AS varchar) AS finish_position_text,
+    CAST(positionorder AS integer) AS finish_position_order,
+    CAST(points AS double) AS points,
+    CAST(laps AS integer) AS laps_completed,
+    CAST(NULLIF(time, '\N') AS varchar) AS race_time_text,
+    CAST(NULLIF(milliseconds, '\N') AS bigint) AS race_time_ms,
+    CAST(NULLIF(fastestlap, '\N') AS integer) AS fastest_lap_number,
+    CAST(NULLIF(rank, '\N') AS integer) AS fastest_lap_rank,
+    CAST(NULLIF(fastestlaptime, '\N') AS varchar) AS fastest_lap_time_text,
+    CAST(NULLIF(fastestlapspeed, '\N') AS double) AS fastest_lap_speed,
+    CAST(statusid AS integer) AS status_id
 FROM {{ source('f1', 'results') }}
