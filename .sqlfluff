@@ -15,6 +15,7 @@ exclude_path =
   dbt/logs
   .venv
   warehouse
+exclude_rules = structure.column_order
 
 [sqlfluff:rules:capitalisation.keywords]
 capitalisation_policy = upper
