@@ -7,6 +7,6 @@ SELECT
     races.race_date,
     circuits.circuit_long_name,
     circuits.location AS circuit_location,
-    circuits.country AS circuit_country,
+    circuits.country AS circuit_country
 FROM {{ ref('stg_f1__races') }} AS races
 LEFT JOIN {{ ref('stg_f1__circuits') }} AS circuits ON races.circuit_id = circuits.circuit_id
