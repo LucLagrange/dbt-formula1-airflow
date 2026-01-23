@@ -3,5 +3,9 @@ SELECT
     CAST(raceid AS integer) AS race_id,
     CAST(constructorid AS integer) AS constructor_id,
     CAST(points AS integer) AS points,
-    NULLIF(status, '\N') AS status
+    CASE
+        WHEN status = '\N' THEN NULL
+        WHEN status = 'D' THEN 'Disqualified'
+        ELSE status
+    END AS status
 FROM {{ source('f1', 'constructor_results') }}

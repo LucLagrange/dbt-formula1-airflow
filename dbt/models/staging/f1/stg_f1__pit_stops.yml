@@ -30,5 +30,5 @@ models:
             description: Time of day when pit stop occurred
           - name: duration_text
             description: Duration of pit stop in text format
-          - name: duration_ms
-            description: Duration of pit stop in milliseconds
+          - name: duration_seconds
+            description: Duration of pit stop converted to seconds

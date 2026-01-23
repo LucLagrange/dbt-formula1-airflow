@@ -13,7 +13,7 @@ models:
             description: Year of the season
             data_tests:
                 - not_null
-          - name: round
+          - name: season_round
             description: Round number within the season
           - name: circuit_id
             description: Foreign key to circuits table

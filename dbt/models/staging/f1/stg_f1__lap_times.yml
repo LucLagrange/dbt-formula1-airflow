@@ -28,5 +28,5 @@ models:
             description: Position of the driver at the end of this lap
           - name: lap_time_text
             description: Lap time in text format (mm:ss.SSS)
-          - name: lap_time_ms
-            description: Lap time in milliseconds
+          - name: lap_time_seconds
+            description: Lap time converted to seconds
