@@ -4,5 +4,5 @@ SELECT
     CAST(lap AS integer) AS lap_number,
     CAST(position AS integer) AS lap_position,
     CAST(time AS varchar) AS lap_time_text,
-    CAST(milliseconds AS integer) AS lap_time_ms
+    CAST(milliseconds AS DOUBLE) / 1000 AS lap_time_seconds
 FROM {{ source('f1', 'lap_times') }}

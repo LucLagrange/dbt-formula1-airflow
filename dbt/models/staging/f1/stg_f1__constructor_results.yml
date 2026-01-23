@@ -28,4 +28,4 @@ models:
           - name: points
             description: Points scored by the constructor in this race
           - name: status
-            description: Status or notes about the constructor's performance
+            description: The status of the constructor's result.

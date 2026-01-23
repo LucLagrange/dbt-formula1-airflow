@@ -6,7 +6,7 @@ SELECT
     CAST(NULLIF(number, '\N') AS integer) AS car_number,
     CAST(grid AS integer) AS grid_position,
     CAST(NULLIF(position, '\N') AS integer) AS finish_position,
-    CAST(positiontext AS varchar) AS finish_position_text,
+    {{ standardize_position_text('positiontext') }} AS finish_position_text,
     CAST(positionorder AS integer) AS finish_position_order,
     CAST(points AS double) AS points,
     CAST(laps AS integer) AS laps_completed,
