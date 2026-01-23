@@ -1,7 +1,7 @@
 SELECT
     CAST(raceid AS integer) AS race_id,
     CAST(year AS integer) AS season_year,
-    CAST(round AS integer) AS round,
+    CAST(round AS integer) AS season_round,
     CAST(circuitid AS integer) AS circuit_id,
     CAST(name AS varchar) AS race_name,
     CAST(date AS date) AS race_date,
